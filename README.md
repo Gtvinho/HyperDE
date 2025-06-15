@@ -1,6 +1,10 @@
 # HyprDE⚡ 
 
+<<<<<<< HEAD
 
+
+=======
+>>>>>>> 22cd0461485760c29e4d2ae034ea4cac34cd0b74
 **HyprDE** é um projeto em desenvolvimento que busca criar um ambiente de desktop (DE) leve, moderno e customizável, baseado no [Hyprland](https://github.com/hyprwm/Hyprland), um compositor dinâmico para Wayland com suporte a animações.
 
 ---
