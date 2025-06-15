@@ -1,13 +1,14 @@
-# HyperDE⚡ 
+# HyprDE⚡ 
 
-**HyperDE** é um projeto em desenvolvimento que busca criar um ambiente de desktop (DE) leve, moderno e customizável, baseado no [Hyprland](https://github.com/hyprwm/Hyprland), um compositor dinâmico para Wayland com suporte a animações.
+
+**HyprDE** é um projeto em desenvolvimento que busca criar um ambiente de desktop (DE) leve, moderno e customizável, baseado no [Hyprland](https://github.com/hyprwm/Hyprland), um compositor dinâmico para Wayland com suporte a animações.
 
 ---
 
 
 ## 🎯 Objetivo
 
-O objetivo principal do **HyperDE** é facilitar a instalação e configuração básica do Hyprland para usuários que não têm conhecimento avançado de Linux, mas que desejam experimentar esse ambiente moderno, leve e bonito — especialmente em distribuições como o **Arch Linux**.
+O objetivo principal do **HyprDE** é facilitar a instalação e configuração básica do Hyprland para usuários que não têm conhecimento avançado de Linux, mas que desejam experimentar esse ambiente moderno, leve e bonito — especialmente em distribuições como o **Arch Linux**.
 
 ---
 
