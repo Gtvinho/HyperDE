@@ -4,6 +4,7 @@
 
 ---
 
+
 ## 🎯 Objetivo
 
 O objetivo principal do **HyperDE** é facilitar a instalação e configuração básica do Hyprland para usuários que não têm conhecimento avançado de Linux, mas que desejam experimentar esse ambiente moderno, leve e bonito — especialmente em distribuições como o **Arch Linux**.
