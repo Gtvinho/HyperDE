@@ -1,0 +1,45 @@
+* {
+    font-family: "FiraCode Nerd Font", "JetBrainsMono Nerd Font", "Hack Nerd Font", sans-serif;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+
+window#waybar {
+    background-color: rgba(40, 42, 54, 0.8); /* Transparente */
+    border-bottom: 2px solid #6272a4;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+#clock, #cpu, #memory, #network, #pulseaudio, #battery, #custom-arch, #tray {
+    padding: 0 10px;
+}
+
+#clock {
+    color: #f1fa8c;
+}
+
+#cpu {
+    color: #ff5555;
+}
+
+#memory {
+    color: #8be9fd;
+}
+
+#network {
+    color: #50fa7b;
+}
+
+#pulseaudio {
+    color: #bd93f9;
+}
+
+#battery {
+    color: #ff79c6;
+}
+
+#custom-arch {
+    color: #00bfff;
+    font-weight: bold;
+}

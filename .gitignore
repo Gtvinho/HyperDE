@@ -1,0 +1,46 @@
+# Ignorar pasta de build
+/build/
+
+# Ignorar arquivos gerados pelo CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignorar arquivos gerados por compilação
+*.o
+*.obj
+*.so
+*.a
+*.out
+*.exe
+
+# Ignorar arquivos de automoc do Qt
+*_autogen/
+
+# Arquivos de backup do Vim
+*.swp
+*.swo
+*.swn
+
+# Arquivos de backup comuns
+*~
+.#*
+
+# Ignorar logs temporários
+*.log
+
+# Ignore temporários do Qt Creator (se usar)
+*.user
+*.pro.user
+*.qbs.user
+*.user.*
+.qmake.stash
+
+# Qt Design Studio
+*.qmlproject.user
+
+# Ignorar configurações locais de IDEs
+.idea/
+.vscode/
+
