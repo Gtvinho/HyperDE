@@ -13,8 +13,8 @@ int main(int argc, char *argv[]) {
     QWidget window;
     window.setWindowTitle("HyprDE Launcher");
 
-    QPushButton *waybarButton = new QPushButton("Abrir Configurador Waybar");
     QPushButton *hyprlandButton = new QPushButton("Abrir Configurador Hyprland");
+     QPushButton *waybarButton = new QPushButton("Abrir Configurador Waybar");
 
     QVBoxLayout *layout = new QVBoxLayout(&window);
     layout->addWidget(hyprlandButton);

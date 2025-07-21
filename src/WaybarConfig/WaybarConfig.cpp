@@ -12,48 +12,55 @@ WaybarConfig::WaybarConfig(QWidget *parent)
 {
     setWindowTitle("HyprDE - Waybar Config");
 
-    // Criação dos switches
-    switchModoEscuro = new QCheckBox("Modo escuro", this);
+    // Criação dos checkboxes
     switchSom = new QCheckBox("Som", this);
     switchCPU = new QCheckBox("CPU", this);
-    switchMemoria = new QCheckBox("Memória", this);
 
-    // Carregar estilo do arquivo QSS e aplicar a todos os switches
+    // Aplicar estilo QSS (opcional)
     QString stylePath = QCoreApplication::applicationDirPath() + "/../Styles/StylesCode/StyleCheckBox.qss";
     QFile styleFile(stylePath);
     if (styleFile.open(QFile::ReadOnly | QFile::Text)) {
         QTextStream in(&styleFile);
         QString style = in.readAll();
-        switchModoEscuro->setStyleSheet(style);
         switchSom->setStyleSheet(style);
         switchCPU->setStyleSheet(style);
-        switchMemoria->setStyleSheet(style);
         styleFile.close();
     } else {
         qWarning() << "❌ Não foi possível carregar o estilo:" << stylePath;
     }
 
-    // Criar mapa para associar nomes às checkboxes
-    switchesMap.insert("modo_escuro", switchModoEscuro);
-    switchesMap.insert("som", switchSom);
-    switchesMap.insert("cpu", switchCPU);
-    switchesMap.insert("memoria", switchMemoria);
-
     // Layout
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->addWidget(switchModoEscuro);
     layout->addWidget(switchSom);
     layout->addWidget(switchCPU);
-    layout->addWidget(switchMemoria);
 
     // Botão salvar
     saveButton = new QPushButton("Salvar Configuração", this);
     layout->addWidget(saveButton);
-
     setLayout(layout);
 
-    // Conexões
+    // Conectar botão ao slot
     connect(saveButton, &QPushButton::clicked, this, &WaybarConfig::saveConfig);
+
+    // 🟡 Carregar estados salvos
+    QFile file(QDir::homePath() + "/.config/config_waybar/config.txt");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream in(&file);
+        while (!in.atEnd()) {
+            QString line = in.readLine().trimmed();
+            QStringList parts = line.split('=');
+            if (parts.size() == 2) {
+                QString key = parts[0];
+                QString value = parts[1];
+
+                if (key == "som") switchSom->setChecked(value == "true");
+                else if (key == "cpu") switchCPU->setChecked(value == "true");
+            }
+        }
+        file.close();
+    } else {
+        qWarning() << "⚠️ Não foi possível carregar o arquivo de configuração.";
+    }
 }
 
 void WaybarConfig::saveConfig()
@@ -61,13 +68,12 @@ void WaybarConfig::saveConfig()
     QFile file(QDir::homePath() + "/.config/waybar/config.txt");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
-        for (auto it = switchesMap.constBegin(); it != switchesMap.constEnd(); ++it) {
-            out << it.key() << "=" << (it.value()->isChecked() ? "true" : "false") << "\n";
-        }
+        out << "som=" << (switchSom->isChecked() ? "true" : "false") << "\n";
+        out << "cpu=" << (switchCPU->isChecked() ? "true" : "false") << "\n";
         file.close();
-        QMessageBox::information(this, "Sucesso", "Configuração salva com sucesso!");
+        QMessageBox::information(this, "Sucesso", "Configurações salvas com sucesso!");
     } else {
-        QMessageBox::warning(this, "Erro", "Não foi possível salvar o arquivo.");
+        QMessageBox::warning(this, "Erro", "Não foi possível salvar o arquivo de configuração.");
     }
 }
 

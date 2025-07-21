@@ -22,7 +22,6 @@ private:
 
     QPushButton *saveButton;
 //switch bottons
-    QCheckBox *switchModoEscuro;
     QCheckBox *switchSom;
     QCheckBox *switchCPU;
     QCheckBox *switchMemoria;
